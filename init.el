@@ -6,8 +6,6 @@
 
 ;; (setq dotfiles-dir "/home/paulv/.emacs.d/")
 
-(message "yes")
-
 (add-to-list 'load-path (concat dotfiles-dir "lisp/"))
 ;(add-to-list 'load-path (concat dotfiles-dir "elpa-to-submit"))
 ;(add-to-list 'load-path (concat dotfiles-dir "vendor/rhtml/"))
@@ -21,19 +19,27 @@
 
 (require 'package)
 (package-initialize)
-
-(require 'paradox)
-(paradox-enable)
-(setq paradox-spinner-type 'progress-bar)
-(setq paradox-column-width-version 15)
-(setq paradox-column-width-package 24)
-(setq paradox-display-star-count nil)
-
-;; (setq package-enable-at-startup t)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(setq exec-path-from-shell-arguments nil)
 
-(when (memq window-system '(w32 x))
+(use-package paradox
+  :ensure t
+  :init
+  (setq paradox-spinner-type 'progress-bar)
+  (setq paradox-column-width-version 15)
+  (setq paradox-column-width-package 24)
+  (setq paradox-display-star-count nil)
+  :config
+  (paradox-enable))
+
+(use-package exec-path-from-shell
+  :if (memq window-system '(nil w32 x))
+
+  :ensure t
+
+  :init
+  (setq exec-path-from-shell-arguments nil)
+  
+  :config
   (exec-path-from-shell-initialize))
 
 ;;(require 'web-mode)
@@ -47,6 +53,14 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; lsp
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package typescript-mode
+  :ensure t
+
+  :config
+;;  :hook
+;;  (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript))
+)
 
 (use-package lsp-mode
   :ensure t
@@ -79,13 +93,6 @@
 ;; javascript
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(use-package typescript-mode
-  :ensure t
-
-  :config
-
-  :hook
-  (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode)))
 
 
 

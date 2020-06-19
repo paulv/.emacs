@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (paradox enh-ruby-mode exec-path-from-shell which-key yaml-mode zenburn-theme company-lsp use-package typescript-mode lsp-treemacs lsp-ui lsp-mode dracula-theme yasnippet smex company)))
+    (dracula-theme use-package typescript-mode paradox lsp-ui exec-path-from-shell)))
  '(paradox-github-token t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
