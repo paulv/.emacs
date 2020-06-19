@@ -1,10 +1,7 @@
 ;; -*- emacs-lisp -*-
-;; written by paulv, 1997-2010
 
 (setq dotfiles-dir (file-name-directory
                     (or (buffer-file-name) load-file-name)))
-
-;; (setq dotfiles-dir "/home/paulv/.emacs.d/")
 
 (add-to-list 'load-path (concat dotfiles-dir "lisp/"))
 ;(add-to-list 'load-path (concat dotfiles-dir "elpa-to-submit"))
@@ -14,8 +11,8 @@
 ;(add-to-list 'load-path (concat dotfiles-dir "vendor/coffee-mode/"))
 
 ;; get our current hostname
-(setq paulv-current-host
-      (substring (shell-command-to-string "/bin/hostname -f") 0 -1))
+(setq paulv-current-host (system-name))
+
 
 (require 'package)
 (package-initialize)

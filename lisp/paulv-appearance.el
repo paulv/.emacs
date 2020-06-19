@@ -1,4 +1,4 @@
-(cond ((string= "penguin.lxd" paulv-current-host) (set-frame-font "Ubuntu Mono-12"))
+(cond ((string= "penguin" paulv-current-host) (set-frame-font "Ubuntu Mono-12"))
       (t (set-frame-font "Ubuntu Mono-9")))
 
 (cond
