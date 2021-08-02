@@ -1,4 +1,5 @@
 (cond ((string= "penguin" paulv-current-host) (set-frame-font "Ubuntu Mono-12"))
+      ((string= "hanzo" paulv-current-host) (set-frame-font "Ubuntu Mono-12"))
       (t (set-frame-font "Ubuntu Mono-9")))
 
 (cond

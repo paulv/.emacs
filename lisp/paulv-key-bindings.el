@@ -10,6 +10,11 @@
         ((looking-at "\\s\)") (forward-char 1) (backward-list 1))
         (t (message "you are not on a paren"))))
 
+;; alt-backspace sends deletechar, which deletes the character under the
+;; cursor, which I don't care about, so rebind it to do the right thing.
+(if (string= "penguin" paulv-current-host)
+    (global-set-key "<deletechar>" 'backward-kill-word))
+
 (global-set-key "\M-g" 'goto-line)
 (global-set-key "\C-cp" 'match-paren)
 (global-set-key "\C-ci" 'indent-region)

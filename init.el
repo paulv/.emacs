@@ -13,7 +13,6 @@
 ;; get our current hostname
 (setq paulv-current-host (system-name))
 
-
 (require 'package)
 (package-initialize)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
@@ -35,7 +34,7 @@
 
   :init
   (setq exec-path-from-shell-arguments nil)
-  
+
   :config
   (exec-path-from-shell-initialize))
 
@@ -96,6 +95,9 @@
 
 (add-to-list 'auto-mode-alist '("\\.js\\'" . javascript-mode))
 
+;; only use vterm if the emacs is built with loadable module support
+(if module-file-suffix
+    (use-package vterm :ensure t))
 
 
 (require 'flyspell)
