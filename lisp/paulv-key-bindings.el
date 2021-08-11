@@ -12,8 +12,11 @@
 
 ;; alt-backspace sends deletechar, which deletes the character under the
 ;; cursor, which I don't care about, so rebind it to do the right thing.
+;;
+;; "<deletechar>" is not actually the name of key. kbd converts it "to
+;; the internal Emacs key representation"
 (if (string= "penguin" paulv-current-host)
-    (global-set-key "<deletechar>" 'backward-kill-word))
+    (global-set-key (kbd "<deletechar>") 'backward-kill-word))
 
 (global-set-key "\M-g" 'goto-line)
 (global-set-key "\C-cp" 'match-paren)
