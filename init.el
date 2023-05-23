@@ -17,15 +17,15 @@
 (package-initialize)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
-(use-package paradox
-  :ensure t
-  :init
-  (setq paradox-spinner-type 'progress-bar)
-  (setq paradox-column-width-version 15)
-  (setq paradox-column-width-package 24)
-  (setq paradox-display-star-count nil)
-  :config
-  (paradox-enable))
+;; (use-package paradox
+;;   :ensure t
+;;   :init
+;;   (setq paradox-spinner-type 'progress-bar)
+;;   (setq paradox-column-width-version 15)
+;;   (setq paradox-column-width-package 24)
+;;   (setq paradox-display-star-count nil)
+;;   :config
+;;   (paradox-enable))
 
 (use-package exec-path-from-shell
   :if (memq window-system '(nil w32 x))
